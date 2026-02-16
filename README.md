@@ -1,130 +1,101 @@
-🔐 AES-256 FILE ENCRYPTION TOOL (CODTECH INTERNSHIP – TASK 4)
+# AES-256 File Encryption Tool
 
-### 🧾 INTERN DETAILS
+## Overview
 
-Company       : CodTech IT Solutions
+A secure file encryption and decryption tool developed using AES-256 (CBC mode) with password-based key derivation. The application enables users to encrypt and decrypt files of any format while preserving the original file extension. A simple graphical interface ensures ease of use and accessibility.
 
-Intern Name   : SACHINDORE P
+---
 
-Intern ID     : CT06DG1111
+## Features
 
-Domain        : Cyber Security & Ethical Hacking
+* AES-256 encryption in CBC mode
+* Password-based key derivation using PBKDF2 with SHA-256
+* Random salt and initialization vector (IV) for each encryption
+* PKCS7 padding with error detection
+* Automatic recovery of original file extension
+* Error handling for incorrect password or corrupted file
+* Supports multiple file formats (images, PDFs, videos, documents, etc.)
+* Graphical user interface built using Tkinter
 
-Duration      : 6 Weeks
+---
 
-Mentor        : Neela Santhosh
+## Technology Stack
 
---------------------------------------------------------------------
+* Python
+* Cryptography library
+* Tkinter (GUI)
 
-### 📌 OBJECTIVE
-Develop a secure file encryption tool using AES-256 (CBC mode), allowing:
-- Password-based encryption of any file
-- Secure decryption with automatic extension recovery
-- User-friendly interface for interaction
+---
 
---------------------------------------------------------------------
-
-### ⚙️ FEATURES
-✔ AES-256 encryption with CBC mode  
-✔ Password-based key derivation (PBKDF2 with SHA-256)  
-✔ Random salt + IV for every encryption  
-✔ PKCS7 padding with padding error detection  
-✔ Original file extension embedded and recovered  
-✔ Error shown on incorrect password  
-✔ Cross-format file support (images, PDFs, videos, docs, etc.)  
-✔ Simple GUI built using Tkinter  
-
---------------------------------------------------------------------
-
-### 📁 PROJECT STRUCTURE
+## Project Structure
 
 ```
-
 aes_encryption_tool/
-├── aes_tool.py       -> AES encryption/decryption logic
-├── gui.py            -> Tkinter interface for user actions
-└── README.txt        -> Internship documentation (this file)
-
+├── aes_tool.py     # Core encryption and decryption logic
+├── gui.py          # Graphical user interface
+└── README.md       # Project documentation
 ```
 
---------------------------------------------------------------------
+---
 
-### 🔐 HOW IT WORKS
+## Installation and Setup
 
-[ENCRYPTION PROCESS]
-1. User selects a file and enters password.
-2. A 256-bit key is derived using PBKDF2 from password + random salt.
-3. The file is padded and encrypted using AES-256 in CBC mode.
-4. Format saved as: [salt][IV][ext(10 bytes)][encrypted_data]
-5. Output saved as: encrypted_file.bin
+### 1. Clone the Repository
 
-[DECRYPTION PROCESS]
-1. User selects `.bin` file and provides password.
-2. Salt, IV, and extension are extracted.
-3. AES decrypts and removes padding.
-4. Original file is saved with correct extension (e.g., `.jpg`, `.pdf`).
+```
+git clone https://github.com/Karthik09-06/Advanced_Encryption_Tool.git
+cd Advanced_Encryption_Tool
+```
 
---------------------------------------------------------------------
+### 2. Install Dependencies
 
-### 🚀 HOW TO RUN THE TOOL
+```
+pip install cryptography tkinterdnd2
+```
 
-STEP 1: CLONE THE REPOSITORY
-    git clone https://github.com/Sachindore1/ADVANCED-ENCRYPTION-TOOL.git
+### 3. Run the Application
 
-STEP 2: INSTALL REQUIRED LIBRARIES
-    pip install cryptography tkinterdnd2
+```
+python gui.py
+```
 
-STEP 3: LAUNCH THE TOOL
-    python gui.py
+---
 
---------------------------------------------------------------------
+## Working Mechanism
 
-### 📂 EXAMPLE USAGE
+### Encryption Process
 
-🔒 ENCRYPTION
-    Input File   : image.jpg
-    Password     : secret@123
-    Output File  : encrypted_file.bin
+1. User selects a file and enters a password.
+2. A 256-bit key is derived using PBKDF2 with a random salt.
+3. File is padded and encrypted using AES-256 (CBC mode).
+4. Output format:
+   `[salt][IV][extension][encrypted_data]`
+5. Encrypted file is saved as a `.bin` file.
 
-🔓 DECRYPTION
-    Input File   : encrypted_file.bin
-    Password     : secret@123
-    Output File  : decrypted_file.jpg
+### Decryption Process
 
-❌ WRONG PASSWORD OUTPUT
-    "Decryption failed. Wrong password or corrupted file."
+1. User selects the encrypted `.bin` file.
+2. Password is entered for authentication.
+3. Salt, IV, and extension metadata are extracted.
+4. File is decrypted and padding is removed.
+5. Original file is restored with the correct extension.
 
---------------------------------------------------------------------
+---
 
-### 🖼️ UI OUTPUT SECTION
+## Security Considerations
 
-<img width="742" height="493" alt="Image" src="https://github.com/user-attachments/assets/13d14070-0a39-473c-9ab7-4339ad2e2e18" />
+* Uses industry-standard AES-256 encryption
+* Unique salt and IV generated for every encryption
+* Passwords are not stored or logged
+* Decryption requires the correct password
+* Ensures confidentiality and data integrity
 
---------------------------------------------------------------------
+---
 
-### 🛡️ SECURITY NOTES
+## Author
 
-- AES-256 provides strong, industry-grade encryption
-- Passwords are never stored or logged
-- Every encryption has unique salt and IV — output is always different
-- Decryption is impossible without the correct password
+Karthik G
+MCA (Gen), Jain University
 
---------------------------------------------------------------------
-
-### ✅ INTERNSHIP SUMMARY
-
-Internship Provider : CodTech IT Solutions
-Task Name           : AES-256 File Encryption Tool
-Tools Used          : Python, Cryptography, Tkinter
-Status              : ✅ Completed Successfully
-
---------------------------------------------------------------------
-
-### ✍️ AUTHOR
-
-Name     : Sachindore P  
-Course   : MCA (ISMS), Jain University  
-GitHub   : https://github.com/Sachindore1  
-LinkedIn : https://linkedin.com/in/sachindore
-
-====================================================================
+GitHub: https://github.com/Karthik09-06
+LinkedIn: https://www.linkedin.com/in/karthik-g-44957a354/
